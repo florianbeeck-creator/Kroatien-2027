@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kroatien 2027</title>
+<style>
+:root{--text:#13253a;--muted:#607086;--dark:#13283c;--line:#dbe5ef;--glass:rgba(255,255,255,.92);--green:#1f6b4b;--red:#8b3e46;--yellow:#9a7625}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#cbd9e5 url("zadar-kueste.png") center/cover fixed no-repeat}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(11,28,43,.22),rgba(11,28,43,.46))}
+.container{max-width:1080px;margin:auto;padding:18px}
+.hero{min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;border-radius:30px;margin:10px 0 14px;color:#fff;background:linear-gradient(180deg,rgba(10,25,39,.04),rgba(8,23,37,.78));border:1px solid rgba(255,255,255,.3);box-shadow:0 25px 60px rgba(0,0,0,.22);backdrop-filter:blur(3px)}
+.hero-kicker{font-size:14px;letter-spacing:.15em;text-transform:uppercase;opacity:.9;font-weight:800}.hero h1{margin:7px 0 8px;font-size:clamp(42px,8vw,72px);letter-spacing:-.055em;line-height:.95}.sub{font-size:18px;opacity:.94}
+.driver{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.75);border-radius:18px;padding:14px 18px;margin:0 0 14px;box-shadow:0 14px 34px rgba(0,0,0,.14);backdrop-filter:blur(12px)}.driver-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#edf2f6;font-size:22px}.driver-main{flex:1}.driver-main strong{display:block;margin-bottom:3px}.driver-actions{display:flex;gap:8px}.driver-actions button{min-width:82px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 16px;padding:7px;background:rgba(255,255,255,.91);border:1px solid rgba(255,255,255,.7);border-radius:17px;box-shadow:0 14px 34px rgba(0,0,0,.14);backdrop-filter:blur(14px)}
+.tab{border:1px solid transparent;background:transparent;color:#344457;border-radius:12px;padding:12px 16px;font-weight:850;cursor:pointer;transition:.18s}.tab:hover{background:#edf2f6}.tab.active{background:var(--dark);color:#fff;box-shadow:0 7px 16px rgba(0,0,0,.18)}.tab-panel{display:none}.tab-panel.active{display:block}
+.card{background:var(--glass);border:1px solid rgba(255,255,255,.75);border-radius:22px;padding:23px;margin:14px 0;box-shadow:0 13px 34px rgba(15,31,45,.13);backdrop-filter:blur(12px)}
+h2{margin:0 0 17px;font-size:25px;letter-spacing:-.025em}h3{margin:0 0 5px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.info-card{background:rgba(248,251,253,.96);border:1px solid var(--line);border-radius:16px;padding:16px}.row{display:flex;gap:11px;align-items:flex-start}.icon{font-size:20px;filter:grayscale(1)}
+.notice{padding:12px 14px;border-radius:13px;background:#edf3f7;color:#34485b;font-size:14px}.important{border-left:5px solid #263b4e}.info{display:grid;gap:9px}.muted{color:var(--muted)}
+input{width:100%;padding:14px;border:1px solid #cbd7e2;border-radius:13px;font-size:16px;margin-top:7px;background:#fff;color:var(--text);outline:none}input:focus{border-color:#8299ad;box-shadow:0 0 0 3px rgba(74,102,126,.12)}
+.activity{display:grid;grid-template-columns:58px 1fr auto;gap:16px;align-items:center;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:18px;padding:15px;margin:11px 0;box-shadow:0 6px 20px rgba(0,0,0,.055)}
+.activity-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#e8eef3;color:#182b3d;font-size:23px;filter:grayscale(1)}.activity-main{min-width:0}.activity h3{font-size:17px}.meta{color:var(--muted);font-size:13px;line-height:1.55;margin-bottom:6px}.activity-note{font-size:14px;color:#304257}.activity-links{margin-top:7px;font-size:13px}.activity-links a{color:#253a4f;text-decoration:underline}
+.vote{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.vote button,.driver-actions button{border:1px solid #cdd8e2;background:#fff;color:#23374b;border-radius:11px;padding:10px 13px;font-weight:850;cursor:pointer;transition:.18s}.vote button:hover,.driver-actions button:hover{background:#edf2f6;transform:translateY(-1px)}.vote button.selected{color:#fff;border-color:transparent}.yes.selected{background:var(--green)}.no.selected{background:var(--red)}.maybe.selected{background:var(--yellow)}
+.status{font-size:12px;color:var(--muted);margin-top:7px;min-height:16px}.save{background:var(--dark);color:#fff;border:0;border-radius:13px;padding:14px 20px;font-weight:850;cursor:pointer;margin-top:10px}.save:disabled{opacity:.55}
+.special{background:rgba(248,250,252,.96);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:13px}.special h3{font-size:17px}.special .vote{justify-content:flex-start}
+.speed-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.speed{background:#f8fafc;border:1px solid var(--line);border-radius:15px;padding:13px;text-align:center}.speed .num{font-size:21px;font-weight:900}.speed .label{font-size:12px;color:var(--muted);margin-top:3px}
+.schedule-row{display:flex;gap:15px;padding:12px 0;border-bottom:1px solid var(--line)}.schedule-row:last-child{border-bottom:0}.schedule-date{min-width:85px;font-weight:900}.footer{text-align:center;color:#fff;font-size:13px;padding:25px;text-shadow:0 1px 5px rgba(0,0,0,.7)}
+@media(max-width:760px){.container{padding:10px}.hero{min-height:260px;padding:24px;border-radius:22px}.driver{align-items:flex-start}.driver-actions{flex-wrap:wrap}.driver-actions button{flex:1}.card{padding:17px}.activity{grid-template-columns:48px 1fr}.activity-icon{width:46px;height:46px}.vote{grid-column:1/-1;justify-content:flex-start}.vote button{flex:1;min-width:88px}.speed-grid{grid-template-columns:repeat(2,1fr)}}
+.participant-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:12px}.participant-card{background:rgba(248,250,252,.96);border:1px solid var(--line);border-radius:16px;padding:15px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(0,0,0,.06)}.participant-avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#e8eef4;font-size:19px}.participant-name{font-weight:800}</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <div class="hero-kicker">✈ Gemeinsame Reise</div>
+    <h1 id="tripName">Kroatien 2027</h1>
+    <div class="sub" id="tripDates">01.06. – 12.06.2027</div>
+  </section>
+
+  <section class="driver">
+    <div class="driver-icon">🚗</div>
+    <div class="driver-main"><strong>Würdest du in Kroatien Autofahren und bist du über 25 Jahre alt?</strong><span class="muted">Deine Antwort hilft bei der Planung der Fahrer.</span></div>
+    <div class="driver-actions vote" data-id="fahrer_kroatien">
+      <button class="yes" onclick="chooseCustom('fahrer_kroatien','Ja',this)">Ja</button>
+      <button class="no" onclick="chooseCustom('fahrer_kroatien','Nein',this)">Nein</button>
+    </div>
+  </section>
+
+  <nav class="tabs" aria-label="Reisebereiche">
+    <button class="tab active" onclick="showTab('reise')">⌖ Reiseinformationen</button>
+    <button class="tab" onclick="showTab('aktivitaeten')">★ Aktivitäten</button>
+    <button class="tab" onclick="showTab('notfall')">♟ Notfallkontakt</button>
+    <button class="tab" onclick="showTab('flug')">✈ Flugdaten</button> 
+    <button class="tab" onclick="showTab('teilnehmer'); loadParticipants()">👥 Teilnehmer</button>
+  </nav>
+
+  <section id="reise" class="tab-panel active">
+    <div class="card"><h2>Reiseinformationen</h2><div class="grid" id="general"></div></div>
+    <div class="card important"><h2>Wichtige Informationen</h2><div class="info" id="important"></div></div>
+    <div class="card"><h2>Reiseplan</h2><div id="schedule"></div></div>
+  </section>
+
+  <section id="aktivitaeten" class="tab-panel">
+    <div class="card">
+      <h2>Aktivitäten & Termine</h2>
+      <p class="muted">Bitte wähle bei jeder Aktivität <strong>Ja</strong>, <strong>Nein</strong> oder <strong>Vielleicht</strong>.</p>
+      <div id="activities"></div>
+      <div class="special"><h3>🍻 Wer möchte saufen?</h3><div class="muted" style="margin-bottom:10px">Für gute Stimmung und unvergessliche Momente.</div><div class="vote" data-id="saufen"><button class="yes" onclick="chooseCustom('saufen','JAAAA, Aber sowas von',this)">JAAAA, Aber sowas von</button><button class="no" onclick="chooseCustom('saufen','Was das für ne Frage',this)">Was das für ne Frage</button></div><div class="status" id="status-saufen"></div></div>
+      <div class="special"><h3>👕 Flughafen T-Shirt Contest</h3><div class="muted" style="margin-bottom:10px">Aus einem Topf wird ein T-Shirt gezogen und das gezogene T-Shirt muss getragen werden.</div><div class="vote" data-id="tshirt_contest"><button class="yes" onclick="choose('tshirt_contest','Ja',this)">Ja</button><button class="no" onclick="choose('tshirt_contest','Nein',this)">Nein</button><button class="maybe" onclick="choose('tshirt_contest','Vielleicht',this)">Vielleicht</button></div><div class="status" id="status-tshirt_contest"></div></div>
+      <div class="card" style="margin:16px 0 0;padding:18px;background:rgba(244,247,250,.9)"><h3>👤 Deine Teilnahme</h3><label for="name"><strong>Dein Name</strong></label><input id="name" placeholder="z. B. Max Mustermann" autocomplete="name"><div class="notice" style="margin-top:12px">Deine Antworten werden gespeichert. Du kannst sie später mit demselben Namen wieder ändern.</div><button class="save" id="save" onclick="saveVotes()">💾 Antworten speichern</button><div class="status" id="saveStatus"></div></div>
+    </div>
+  </section>
+
+  <section id="notfall" class="tab-panel">
+    <div class="card"><h2>Notfallkontakt</h2><div class="grid">
+      <div class="info-card"><div class="row"><span class="icon">🚨</span><div><strong>Notruf</strong><div class="muted">+385 112</div></div></div></div>
+      <div class="info-card"><div class="row"><span class="icon">🚑</span><div><strong>Rettungswagen</strong><div class="muted">+385 194</div></div></div></div>
+      <div class="info-card"><div class="row"><span class="icon">👮</span><div><strong>Polizei</strong><div class="muted">+385 192</div></div></div></div>
+    </div></div>
+    <div class="card"><h2>Alkohol & Autofahren</h2><div class="notice"><strong>Grundsätzlich 0,5 ‰ für normale Pkw-Fahrer.</strong><br>Für bestimmte Fahrergruppen gelten strengere Regeln. Bitte vor der Fahrt nicht trinken.</div><div class="notice" style="margin-top:10px"><strong>Ausweisdokument aktuell?</strong><br>Personalausweis oder Reisepass muss gültig sein.</div></div>
+    <div class="card"><h2>🚦 Verkehrsregeln in Kroatien</h2><div class="muted" style="margin-bottom:12px">Für Pkw gelten grundsätzlich:</div><div class="speed-grid">
+      <div class="speed"><div class="num">50 km/h</div><div class="label">Innerorts</div></div><div class="speed"><div class="num">90 km/h</div><div class="label">Außerorts</div></div><div class="speed"><div class="num">110 km/h</div><div class="label">Schnellstraße</div></div><div class="speed"><div class="num">130 km/h</div><div class="label">Autobahn</div></div>
+    </div></div>
+  </section>
+
+  <section id="flug" class="tab-panel"><div class="card"><h2>Flugdaten</h2><div class="grid" id="flightData"></div></div></section>
+  <section id="teilnehmer" class="tab-panel">
+    <div class="card">
+      <h2>👥 Teilnehmer</h2>
+      <p class="muted">Hier siehst du, wer bereits eine Abstimmung gespeichert hat.</p>
+      <div class="notice" id="participantStatus">Lade Teilnehmer …</div>
+      <div id="participantList" class="participant-list"></div>
+      <button class="save" type="button" onclick="loadParticipants()">🔄 Liste aktualisieren</button>
+    </div>
+  </section>
+
+  <div class="footer">Gute Reise! ♡ · Kroatien 2027</div>
+</div>
+
+<script>
+const CONFIG={
+ apiUrl:"https://script.google.com/macros/s/AKfycbxdzIUYQh0sR_2l-xSlRcodYu70T1yZjQRDgBiduWglhiNB1nRChZk9Lf7_LsU9fPqZ/exec",
+ tripName:"Kroatien 2027",dates:"01.06. – 12.06.2027",
+ important:["Treffpunkt: Flughafen Hamburg","Abflug: 10:00 Uhr","Bitte gültigen Ausweis/Reisepass mitbringen","1x Aufgabegepäck bis 23 kg","Bitte Impfungen auffrischen"],
+ general:[["🏨","Unterkunft","Villa Pezer"],["📍","Adresse der Villa","262, Benkovačko Selo, Kroatien"],["🌊","Ort","Kroatien, in der Nähe von Zadar"],["🚗","Anreise","Gemeinsame Anreise per Flug und ab Flughafen mit Auto"]],
+ flightData:[["🛫","Hinflug","01.06.2027 · Flugdaten werden ergänzt"],["🕙","Abflug","10:00 Uhr · Flughafen Hamburg"],["🛬","Ankunft","Flugdaten werden ergänzt"],["🎒","Gepäck","1x Aufgabegepäck bis 23 kg"],["✈","Rückflug","12.06.2027 · Flugdaten werden ergänzt"]],
+ activities:[
+  {id:"strand",title:"🏖️ Strandtag",date:"Noch offen",time:"Noch offen",place:"Zadar",note:"Gemeinsamer Strandtag"},
+  {id:"boot",title:"🚤 Bootstour",date:"Noch offen",time:"Noch offen",place:"Zadar",note:"Gemeinsame Bootstour"},
+  {id:"zipline",title:"🪂 Zipline",date:"Noch offen",time:"Noch offen",place:"Ul. Josipa Pupačića 4, 21310 Omiš, Kroatien",note:"Ca. 80 € · Dauer ca. 2,5 Stunden",website:"https://zipline-croatia.com/Kroatien"},
+  {id:"skywalk",title:"🏔️ Skywalk Biokovo",date:"Noch offen",time:"Noch offen",place:"Biokovska cesta, 21325 Tučepi, Kroatien",note:"Termin und Kosten werden noch festgelegt"},
+  {id:"speedboat",title:"🚤 Speedboat Tour mit Schnorcheln",date:"Noch offen",time:"Noch offen",place:"Zadar",note:"Speedboat-Tour inklusive Schnorcheln"},
+  {id:"kartfahren",title:"🏎️ Kartfahren",date:"Noch offen",time:"Noch offen",place:"23235 Vrsi, Kroatien",note:"10 Minuten · ca. 15–20 €"},
+  {id:"aquapark",title:"🌊 Aquapark",date:"Noch offen",time:"Noch offen",place:"Ulica Crvena luka 2, 23210 Biograd na Moru, Kroatien",note:"35 €",website:"https://www.dalmaland.com/en"},
+  {id:"krka",title:"🥾 Wandern im Nationalpark – Wasserfälle",date:"Noch offen",time:"Noch offen",place:"Nationalpark Krka, Kroatien",note:"Wanderung zu den Wasserfällen"},
+  {id:"glowkanu",title:"🛶 Glow Kanu Tour",date:"Noch offen",time:"Noch offen",place:"Split, Kroatien",note:"Nächtliche Kanutour, bei der das Boot in verschiedenen Farben leuchtet"},
+  {id:"festival",title:"🎪 Festival",date:"Noch offen",time:"Noch offen",place:"Noch offen",note:"Ca. 10–20 € pro Tag"},
+  {id:"jetski",title:"🌊 Jetski fahren",date:"Noch offen",time:"Noch offen",place:"Zadar",note:"Jetski fahren an der Küste"},
+  {id:"klippenspringen",title:"🧗 Klippenspringen",date:"Noch offen",time:"Noch offen",place:"Kroatien",note:"Klippenspringen"},
+  {id:"quadtour",title:"🏍️ Quad-Tour",date:"Noch offen",time:"Noch offen",place:"Kroatien",note:"Geführte Quad-Tour"},
+  {id:"kanunationalpark",title:"🛶 Kanufahren im Nationalpark",date:"Noch offen",time:"Noch offen",place:"Nationalpark, Kroatien",note:"Kanufahrt im Nationalpark"},
+  {id:"schiffwrack",title:"⚓ Schiffwrack-Bootstour",date:"Noch offen",time:"Noch offen",place:"Kroatische Küste",note:"Bootstour zu einem Schiffwrack"},
+  {id:"delfinbeobachtung",title:"🐬 Delfinbeobachtung",date:"Noch offen",time:"Noch offen",place:"Kroatische Küste",note:"Delfine auf einer Bootstour beobachten"},
+  {id:"tuktukzadar",title:"🛺 Tuk-Tuk-Tour durch Zadar",date:"Noch offen",time:"Noch offen",place:"Zadar",note:"Tuk-Tuk-Tour durch Zadar"},
+  {id:"nachtbootstour",title:"🌙 Nachtbootstour",date:"Noch offen",time:"Noch offen",place:"Zadar / kroatische Küste",note:"Bootstour bei Nacht"}
+ ],
+ schedule:[["01.06.","✈️ Anreise","Ankunft und Fahrt zur Villa"],["02.–11.06.","🌴 Aufenthalt","Gemeinsame Aktivitäten und freie Zeit"],["12.06.","✈️ Rückreise","Abreise"]]
+};
+
+document.getElementById("tripName").textContent=CONFIG.tripName;document.getElementById("tripDates").textContent=CONFIG.dates;
+document.getElementById("important").innerHTML=CONFIG.important.map(x=>`<div class="row"><span class="icon">•</span><span>${esc(x)}</span></div>`).join("");
+document.getElementById("general").innerHTML=CONFIG.general.map(x=>`<div class="info-card"><div class="row"><span class="icon">${x[0]}</span><div><strong>${esc(x[1])}</strong><div class="muted">${esc(x[2])}</div></div></div></div>`).join("");
+document.getElementById("flightData").innerHTML=CONFIG.flightData.map(x=>`<div class="info-card"><div class="row"><span class="icon">${x[0]}</span><div><strong>${esc(x[1])}</strong><div class="muted">${esc(x[2])}</div></div></div></div>`).join("");
+document.getElementById("schedule").innerHTML=CONFIG.schedule.map(x=>`<div class="schedule-row"><strong class="schedule-date">${esc(x[0])}</strong><span>${x[1]} <strong>${esc(x[2])}</strong></span></div>`).join("");
+function showTab(id){document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));document.getElementById(id).classList.add("active");const btn=[...document.querySelectorAll(".tab")].find(b=>b.getAttribute("onclick")===`showTab('${id}')`);if(btn)btn.classList.add("active");window.scrollTo({top:document.querySelector(".tabs").offsetTop-10,behavior:"smooth"});}
+const votes={saufen:null,tshirt_contest:null,fahrer_kroatien:null};
+CONFIG.activities.forEach(a=>{votes[a.id]=null;const el=document.createElement("div");el.className="activity";const raw=String(a.title||"");const m=raw.match(/^[^A-Za-zÄÖÜäöü0-9]+/);const icon=m?m[0].trim():"•";const title=raw.replace(/^[^A-Za-zÄÖÜäöü0-9]+/,"").trim();const links=[a.website?`<a href="${esc(a.website)}" target="_blank" rel="noopener noreferrer">🌐 Webseite</a>`:""].filter(Boolean).join(" · ");el.innerHTML=`<div class="activity-icon">${icon}</div><div class="activity-main"><h3>${esc(title)}</h3><div class="meta">▣ ${esc(a.date)} &nbsp; ◷ ${esc(a.time)} &nbsp; ⌖ ${esc(a.place)}</div><div class="activity-note">${esc(a.note||"")}</div>${links?`<div class="activity-links">${links}</div>`:""}</div><div><div class="status" style="text-align:right">Noch offen</div><div class="vote"><button class="yes" onclick="choose('${a.id}','Ja',this)">Ja</button><button class="no" onclick="choose('${a.id}','Nein',this)">Nein</button><button class="maybe" onclick="choose('${a.id}','Vielleicht',this)">Vielleicht</button></div><div class="status" id="status-${a.id}" style="text-align:right"></div></div>`;document.getElementById("activities").appendChild(el);});
+function choose(id,value,btn){votes[id]=value;btn.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");const s=document.getElementById("status-"+id);if(s)s.textContent="Auswahl: "+value;}
+function chooseCustom(id,value,btn){votes[id]=value;btn.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");const s=document.getElementById("status-"+id);if(s)s.textContent="Auswahl: "+value;}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));}
+async function loadParticipants(){
+  const status=document.getElementById("participantStatus");
+  const list=document.getElementById("participantList");
+  if(!status||!list)return;
+  status.textContent="Lade Teilnehmer …";
+  list.innerHTML="";
+  try{
+    const res=await fetch(CONFIG.apiUrl+"?action=participants",{method:"GET",cache:"no-store"});
+    const data=await res.json();
+    if(!data.ok) throw new Error(data.error||"Fehler");
+    const names=Array.isArray(data.participants)?data.participants:[];
+    status.textContent=names.length ? names.length+" Person"+(names.length===1?"":"en")+" hat bereits abgestimmt." : "Bisher hat noch niemand abgestimmt.";
+    names.forEach(name=>{
+      const card=document.createElement("div");
+      card.className="participant-card";
+      card.innerHTML='<div class="participant-avatar">👤</div><div class="participant-name">'+esc(name)+'</div>';
+      list.appendChild(card);
+    });
+  }catch(e){
+    status.textContent="Teilnehmer konnten nicht geladen werden. Bitte später erneut versuchen.";
+  }
+}
+async function saveVotes(){const name=document.getElementById("name").value.trim(),status=document.getElementById("saveStatus");if(!name){status.textContent="Bitte zuerst deinen Namen eingeben.";return}if(Object.values(votes).filter(Boolean).length===0){status.textContent="Bitte mindestens eine Antwort auswählen.";return}document.getElementById("save").disabled=true;status.textContent="Speichere …";try{const res=await fetch(CONFIG.apiUrl,{method:"POST",mode:"cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,votes,trip:CONFIG.tripName})});const data=await res.json();status.textContent=data.ok?"✅ Deine Antworten wurden gespeichert.":"❌ Speichern fehlgeschlagen.";}catch(e){status.textContent="❌ Speichern fehlgeschlagen. Prüfe die Apps-Script-URL."}finally{document.getElementById("save").disabled=false}}
+</script>
+</body></html>
